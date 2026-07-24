@@ -29,8 +29,7 @@ RUN bash -x /src/build.sh
 
 # Build x265
 FROM emsdk-base AS x265-builder
-ENV X265_BRANCH=3.4
-ADD https://github.com/ffmpegwasm/x265.git#$X265_BRANCH /src
+ADD https://bitbucket.org/multicoreware/x265_git.git /src
 COPY build/x265.sh /src/build.sh
 RUN bash -x /src/build.sh
 
