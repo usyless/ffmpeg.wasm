@@ -22,14 +22,13 @@ RUN apt-get update && \
 
 # Build x264
 FROM emsdk-base AS x264-builder
-ENV X264_BRANCH=4-cores
-ADD https://github.com/ffmpegwasm/x264.git#$X264_BRANCH /src
+ADD https://code.videolan.org/videolan/x264.git#stable /src
 COPY build/x264.sh /src/build.sh
 RUN bash -x /src/build.sh
 
 # Build x265
 FROM emsdk-base AS x265-builder
-ADD https://bitbucket.org/multicoreware/x265_git.git /src
+ADD https://github.com/Multicorewareinc/x265.git#stable /src
 COPY build/x265.sh /src/build.sh
 RUN bash -x /src/build.sh
 
